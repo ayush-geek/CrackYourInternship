@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& nums) {
+     
+        int min_p=nums[0];
+        int max_p=nums[0];
+       int pft=0;
+        
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]<min_p)
+            {
+                min_p=nums[i];
+                max_p=nums[i];
+            }
+            else if(nums[i]>max_p)
+                max_p=nums[i];
+            
+            pft=max(pft,max_p-min_p);
+        }
+        
+        return pft;
+    }
+};
