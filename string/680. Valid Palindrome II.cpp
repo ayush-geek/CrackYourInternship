@@ -1,0 +1,43 @@
+class Solution {
+public:
+    
+    bool check(string s , int src,int end)
+    {
+        while(src<end)
+        {
+            if(s[src]!=s[end])
+                return false;
+            
+            src++;
+            end--;
+        }
+        
+        return true;
+    }
+    
+    
+    
+    bool validPalindrome(string s) {
+     //Deleting at most 1 letter
+        
+       int srt=0;
+        int e=s.size()-1;
+        
+        while(srt<e)
+        {
+            if(s[srt]!=s[e])
+            {
+                return check(s,srt,e-1) || check(s,srt+1,e);
+            }
+            
+            srt++;
+            e--;
+        }
+        
+        
+        return true;
+      
+        
+        
+    }
+};
